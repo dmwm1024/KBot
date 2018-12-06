@@ -11,6 +11,7 @@ namespace KBot
 {
     class Program
     {
+        // Instantiate
         static void Main(string[] args) => new Program().StartAsync().GetAwaiter().GetResult();
 
         private DiscordSocketClient _client;
