@@ -1,0 +1,9 @@
+{
+  "CHOICE_TITLE_&Username": "Choice For: {0}",
+  "NOPERM_$RoleName": "This command requires the {0} role.",
+  "ADDROLE": "Adding Role [{0}] to Guild: [{1}]",
+  "PRIVPROF": "Their profile is private or they have not played competitive this season.",
+  "UNKNOWNUSER": "I do not know who you are! Please use the `$btag` command as a way to sort this out.",
+  "UNKNOWNUSER_NOBTAG": "I do not know your battle tag! Please use the `$btag` command.",
+  "BTAGUPDATED": "Thanks! Your battle tag has been updated."
+}
