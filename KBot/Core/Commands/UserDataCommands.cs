@@ -7,6 +7,7 @@ using KBot.Resources.Database;
 using Discord;
 using Discord.WebSocket;
 using System.Linq;
+using OverwatchAPI;
 
 namespace KBot.Core.Commands
 {
@@ -65,6 +66,29 @@ namespace KBot.Core.Commands
                 else
                 {
                     await Context.Channel.SendMessageAsync("Your Btag: " + person.BattleTag);
+                }
+            }
+
+            [Command("mySR"), Alias("SR"), Summary("Retrieves the calling user's SR.")]
+            public async Task mySR()
+            {
+                Discord.Rest.RestUserMessage msg = await Context.Channel.SendMessageAsync("Hold please...");
+                Person person = Data.Data.GetUser(Context.User.Id);
+                if (person.BattleTag == String.Empty)
+                {
+                    await msg.ModifyAsync(con => con.Content = "I'm afraid I do not know your battle tag!");
+                }
+                else
+                {
+                    Player player =  await Utilities.Overwatch.GetPlayer(person.BattleTag);
+                    if (player.IsProfilePrivate)
+                    {
+                        await msg.ModifyAsync(con => con.Content = "Your profile seems to be private. Change it to public and then close the game to use this command.");
+                    }
+                    else
+                    {
+                        await msg.ModifyAsync(con => con.Content = "Your SR is: " + player.CompetitiveRank);
+                    }
                 }
             }
 

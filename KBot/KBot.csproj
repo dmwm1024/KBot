@@ -17,11 +17,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Ofl.Twitch" Version="3.0.11" />
+    <PackageReference Include="Overwatch.Net" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Datatypes\" />
+    <Folder Include="Core\Controllers\" />
   </ItemGroup>
 
 </Project>

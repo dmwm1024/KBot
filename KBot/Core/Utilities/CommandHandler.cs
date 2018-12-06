@@ -24,6 +24,7 @@ namespace KBot.Core.Utilities
 
         private async Task HandleCommandAsync(SocketMessage s)
         {
+            if (s.Author.IsBot) return;
             var msg = s as SocketUserMessage;
             if (msg == null) return;
             var context = new SocketCommandContext(_client, msg);
